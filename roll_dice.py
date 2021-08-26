@@ -37,30 +37,27 @@ async def on_message(message):
         dice_cont = content.split('d')[0]
 
         try:
-            if isinstance(int(dice_cont), int):
-                dice_cont = int(dice_cont)
+            dice_cont = int(dice_cont)
 
         except ValueError:
-            error.append('how many dice you roll must be an interger!')
+            error.append('How many dice you roll must be an interger!')
 
         # 骰子類型判斷
         content = content.split('d')[1]
         dice_type = content.split('>')[0]
         try:
-            if isinstance(int(dice_type), int):
-                dice_type = int(dice_type)
+            dice_type = int(dice_type)
 
         except ValueError:
-            error.append('dice type must be an interger!')
+            error.append('Dice type must be an interger!')
 
         # 成功判斷
         if '>' in content:
             success = content.split('>')[1]
             try:
-              if isinstance(int(success), int):
                 success = int(success)    
             except ValueError:
-                error.append('success condition must be an interger!')
+                error.append('Success condition must be an interger!')
 
         else:
             success = 0
